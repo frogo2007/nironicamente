@@ -1,0 +1,66 @@
+var resposta = 4
+var movimento = 0
+var estatico = 0
+
+function setup() {
+  createCanvas(400, 400);
+}
+function draw() {
+  background(0);
+  fill(255, 255, 0)
+  circle(100, movimento+300, 100)
+  rect(160, movimento+270, 20, 60, 100)
+  rect(160, movimento+300, 50, 40, 15)
+  //cria a parte amarela
+  
+  fill(150, 150, 255)
+  rect(70, movimento+275, 30)
+  rect(110, movimento+275, 30)
+  //cria o oculos
+  
+  fill(0)
+  circle(85, 290, 5)
+  circle(125, 290, 5)
+  rect(90, movimento+320, 24, 3)
+  //cria a parte preta
+  
+  fill(255)
+  rect(96, movimento+323, 12, 7)
+  //cria o dente
+  
+  if (movimento === -1) {
+    estatico = -1
+  }
+  if (movimento === -10){
+    estatico = 2
+  }
+  if (movimento >0) {
+    estatico =0
+  }
+      
+  movimento=movimento + estatico;
+  
+  if(resposta===4){
+   resposta= random(0, 3)
+  } //transforma a resposta em 2 ou 0
+  if(resposta>0 && resposta<1){
+    resposta="sim"
+  }
+  if(resposta>1 && resposta<2){
+    resposta="não"
+  }
+  if(resposta>2 && resposta<3){
+    resposta="talvez"
+  }//da o resultado
+  
+  textAlign(CENTER)
+  textSize(30)
+  text(resposta, 200, 200)  
+}
+
+function keyTyped(){
+  if(keyIsPressed && keyCode === 82) {
+    resposta = 4;
+    movimento = -1;
+  }
+}
