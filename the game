@@ -1,4 +1,4 @@
-var resposta = 4
+var resposta = 5
 var movimento = 0
 var estatico = 0
 
@@ -40,8 +40,8 @@ function draw() {
       
   movimento=movimento + estatico;
   
-  if(resposta===4){
-   resposta= random(0, 3)
+  if(resposta===5){
+   resposta= random(0, 4)
   } //transforma a resposta em 2 ou 0
   if(resposta>0 && resposta<1){
     resposta="sim"
@@ -51,6 +51,9 @@ function draw() {
   }
   if(resposta>2 && resposta<3){
     resposta="talvez"
+  }
+  if(resposta>3 && resposta<3.5){
+    resposta="*sons de peido com a boca"
   }//da o resultado
   
   textAlign(CENTER)
@@ -59,8 +62,8 @@ function draw() {
 }
 
 function keyTyped(){
-  if(keyIsPressed && keyCode === 82) {
-    resposta = 4;
+  if(keyIsPressed && keyCode === 13) {
+    resposta = 5;
     movimento = -1;
   }
 }
